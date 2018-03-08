@@ -1,0 +1,35 @@
+{% extends "mysite/base.html" %}
+{% block title %}Website{% endblock %}
+{% block content %}
+{% if product_list %}
+<p class="lead">Products:</p>
+<table class="table table-striped table-condensed">
+  <thead>
+    <th>Product ID</th>
+    <th>Product name</th>
+    <th>Vender</th>
+    <th>MRP</th>
+    <th>batchNum</th>
+    <th>batchDate</th>
+    <th>quantity</th>
+  </thead>
+  <tbody>
+    {% for product in product_list %}
+        <tr>
+          <td><a href="{% url 'inventory_detail' pk=product.productId %}">{{ product.productId }}</a></td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.vendor }}</td>
+          <td>{{ product.MRP }}</td>
+          <td>{{ product.batchNum }}</td>
+          <td>{{ product.batchDate }}</td>
+          <td>{{ product.quantity }}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+    <p class="lead">No orders are available.</p>
+{% endif %}
+
+
+{% endblock %}

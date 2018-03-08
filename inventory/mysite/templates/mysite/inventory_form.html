@@ -1,0 +1,12 @@
+{% extends "mysite/base.html" %}
+{% block title %}Add Inventory{% endblock %}
+{% block content %}
+    <h1>Add Inventory</h1>
+    <div class="container">
+      <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+  {% endblock %}

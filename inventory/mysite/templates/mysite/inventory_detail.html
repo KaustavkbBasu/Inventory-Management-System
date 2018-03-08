@@ -1,0 +1,9 @@
+{% extends "mysite/base.html" %}
+{% block title %}Website{% endblock %}
+{% block content %}
+<h1>About me</h1>
+{% if user.is_authenticated %}
+  <a class="btn btn-primary" href="{% url 'product_edit' pk=product.productId %}">Edit</a>
+  <a class="btn btn-primary" href="{% url 'product_remove' pk=product.productId %}">Edit</a>
+{% endif %}
+{% endblock %}
